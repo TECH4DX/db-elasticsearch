@@ -57,3 +57,7 @@ Elasticsearch从6.8开始允许免费用户使用X-Pack的安全功能，从而�
     "tagline" : "You Know, for Search"
     }
     ```
+    
+- Dashboard  
+ 推荐使用[kibiter](https://github.com/chaoss/grimoirelab-kibiter)构建你的数据看板：  
+ Kibiter is a custom soft fork of Kibana which empowers GrimoireLab Panels with metrics & data visualizations.
