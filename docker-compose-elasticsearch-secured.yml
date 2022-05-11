@@ -12,7 +12,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - esdata1:/usr/share/elasticsearch/data
+      - ./data1:/usr/share/elasticsearch/data
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     ports:
@@ -32,7 +32,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - esdata2:/usr/share/elasticsearch/data
+      - ./data2:/usr/share/elasticsearch/data
       - ./elastic-certificates.p12:/usr/share/elasticsearch/config/elastic-certificates.p12
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     networks:
@@ -50,12 +50,6 @@ services:
       - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     networks:
       - esnet
-
-volumes:
-  esdata1:
-    driver: /tmp/es
-  esdata2:
-    driver: /tmp/es
 
 networks:
   esnet:
