@@ -38,6 +38,23 @@ services:
     networks:
       - esnet
 
+  kibiter:
+    image: bitergia/kibiter:community-v6.8.6-3
+    container_name: kibiter
+    ports:
+      - 5601:5601
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      # only used for secured version
+      # - PROJECT_NAME=DevelopereXperience
+      # - ELASTICSEARCH_USER=xxxxx
+      # - ELASTICSEARCH_PASSWORD=xxxxxx
+      # - LOGIN_BRANDIMAGE=https://github.com/guoqiangqi/images/blob/main/images/avatar.png
+      # - LOGIN_TITLE=Please login to Developer eXperience Analytics Dashboard
+      # - LOGIN_SUBTITLE=If you have forgotten your username or password, please contact the Mindspore DX-SIG
+    networks:
+      - esnet
+
 volumes:
   esdata1:
     driver: local
