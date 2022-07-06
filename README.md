@@ -1,8 +1,8 @@
 ## System Setting 
 Set enough virtual memory to secured ElasticSearch before we started:  
-   option 1: `sysctl -w vm.max_map_count=262144` that is only valid for current session.  
-   option 2: update `vm.max_map_count` setting in /etc/sysctl.conf  
-   check the result: `sysctl -p`
+- option 1: `sysctl -w vm.max_map_count=262144` that is only valid for current session.  
+- option 2: update `vm.max_map_count` setting in `/etc/sysctl.conf`
+- check the result: `sysctl -p`
 
 ## docker-compose
 Elasticsearch从6.8开始允许免费用户使用X-Pack的安全功能，从而实现基础的安全认证，我们基于docker-compose来搭建该环境：
