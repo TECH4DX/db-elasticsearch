@@ -1,3 +1,9 @@
+## System Setting 
+Set enough virtual memory to secured ElasticSearch before we started:  
+   option 1: `sysctl -w vm.max_map_count=262144` that is only valid for current session.  
+   option 2: update `vm.max_map_count` setting in /etc/sysctl.conf  
+   check the result: `sysctl -p`
+
 ## docker-compose
 Elasticsearch从6.8开始允许免费用户使用X-Pack的安全功能，从而实现基础的安全认证，我们基于docker-compose来搭建该环境：
 相关文件已在项目中配置，部分设置需要容器中进行：
@@ -6,30 +12,6 @@ Elasticsearch从6.8开始允许免费用户使用X-Pack的安全功能，从而�
     ```bash
     $ docker-compose -f docker-compose-elasticsearch-secured.yml up -d
     ```
-
-- 生成密码  
-1. 进入elasticsearch容器(多节点的话，任意一台都是可以的)
-    ```bash
-    $ docker exec -it elasticsearch /bin/bash
-    ```
-2. 可以通过-h查看相关帮助
-    ```bash
-    $ ./bin/elasticsearch-setup-passwords -h
-    ```
-3. 允许使用`auto`来自动生成密码和`interactive`指定密码：
-    ```bash
-    ./bin/elasticsearch-setup-passwords interactive
-    ```
-
-
-- 修改kibana的配置文件  
-修改`./kibana.yml`文件, 将`elasticsearch.password`替换成上一步设置elastic密码，重启kibana
-    ```bash
-    $ docker-compose restart kibana
-    # 重启多个节点
-    # docker-compose -f docker-compose-elasticsearch-secured.yml restart
-    ```
-
 - 查看节点状态/登陆kibana  
     可以直接访问对应地址查看节点状态：
     ```bash
