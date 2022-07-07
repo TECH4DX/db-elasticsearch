@@ -23,7 +23,7 @@ RUN apt-get update && \
             make \
             g++ \
             ruby-dev rpm rubygems \
-            libffi-dev \
+            libffi-dev
     # Install nvm and npm 
 RUN curl -o /tmp/nvm-install.sh -sSL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh && \
     chmod +x /tmp/nvm-install.sh && \
@@ -95,7 +95,7 @@ ENV PATH /opt/kibana/bin:$PATH
 
 # Remove kibana optimize so it is regenerated when we modify src files in containers
 # Don't delete because we don't modify anymore src in docker-entrypoint.sh
-#RUN rm -rf /opt/kibana/optimize/*
+RUN rm -rf /opt/kibana/optimize/*
 #RUN cat /opt/kibana/config/kibana.yml
 RUN rm /opt/kibana/config/kibana.yml
 
@@ -106,4 +106,4 @@ RUN rm /opt/kibana/config/kibana.yml
 
 EXPOSE 5601
 #ENTRYPOINT ["/docker_entrypoint.sh"]
-CMD ["kibana"] 
+CMD ["kibana"]
