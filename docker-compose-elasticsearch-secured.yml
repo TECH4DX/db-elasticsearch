@@ -39,15 +39,15 @@ services:
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
     networks:
       - esnet
-  kibana:
-    image: docker.elastic.co/kibana/kibana:6.8.6
-    container_name: kibana
+  kibiter:
+    image: guoqiangqi/kibiter:community-v6.8.6-3
+    container_name: kibiter
     depends_on:
       - elasticsearch
     ports:
       - 5601:5601
     volumes:
-      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./kibana.yml:/opt/kibana/config/kibana.yml
     networks:
       - esnet
 
