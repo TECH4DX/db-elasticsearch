@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM debian:stable
 # Image for developing Kibiter/Kibana
 
 # nvm environment variables
@@ -24,7 +24,6 @@ RUN apt-get update && \
             g++ \
             ruby-dev rpm rubygems \
             libffi-dev \
-            libssl-dev
     # Install nvm and npm 
 RUN curl -o /tmp/nvm-install.sh -sSL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh && \
     chmod +x /tmp/nvm-install.sh && \
@@ -36,8 +35,7 @@ ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
     # Install kibiter
     # gems needed in Kibana > 5.x to build binary packages
-RUN gem sources --remove https://rubygems.org/ && gem sources -a https://gems.ruby-china.com/ && \
-    gem install rake && \
+RUN gem install rake && \
     gem install ffi && \
     gem install fpm -v 1.5.0 && \
     gem install pleaserun -v 0.0.24
@@ -101,7 +99,7 @@ ENV PATH /opt/kibana/bin:$PATH
 #RUN cat /opt/kibana/config/kibana.yml
 RUN rm /opt/kibana/config/kibana.yml
 
-RUN ./opt/kibana/bin/kibana | sleep 200 > /tmp/run_kibana_log.txt
+#RUN ./opt/kibana/bin/kibana | sleep 200 > /tmp/run_kibana_log.txt
 
 #COPY ./docker_entrypoint.sh /
 #RUN ["chmod", "+x", "/docker_entrypoint.sh"]
