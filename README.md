@@ -4,6 +4,12 @@ Set enough virtual memory to secured ElasticSearch before we started:
 - option 2: update `vm.max_map_count` setting in `/etc/sysctl.conf`
 - check the result: `sysctl -p`
 
+## Checkout Branch
+We have provided three branches now, choose one you needed:
+- Kibana(official dashboard of Elasticsearch)
+- Kibiter(soft fork of Kibana which provides several features not present in Kibana)
+- Grimoirelab(GrimoireLab is a CHAOSS toolset for software development analytics)
+
 ## docker-compose
 Elasticsearch从6.8开始允许免费用户使用X-Pack的安全功能，从而实现基础的安全认证，我们基于docker-compose来搭建该环境：
 相关文件已在项目中配置，部分设置需要容器中进行：
