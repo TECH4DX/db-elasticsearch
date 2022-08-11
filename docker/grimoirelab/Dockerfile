@@ -54,4 +54,4 @@ RUN echo "Activate virtual environment" && \
     cd sigils && \
     python3 setup.py develop
 
-CMD ["sh", "-c", ". /root/ivenv/bin/activate && sirmordred -c /root/grimoirelab/default-grimoirelab-settings/setup-gitee.cfg"]
+CMD ["sh", "-c", ". /root/ivenv/bin/activate && sirmordred -c /root/repos/grimoirelab/default-grimoirelab-settings/setup-gitee.cfg"]
