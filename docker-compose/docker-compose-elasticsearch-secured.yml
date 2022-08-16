@@ -16,7 +16,7 @@ services:
       - ADMIN_USER=admin
       - ADMIN_PASS=admin
     ports:
-      - 8000:80
+      - 5602:80
     links:
       - mariadb
     depends_on:
