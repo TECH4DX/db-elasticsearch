@@ -76,6 +76,17 @@ services:
     networks:
       - esnet
 
+    grimoirelab:
+    image: guoqiangqi/grimoirelab:v1.1
+    container_name: grimoirelab
+    depends_on:
+      - elasticsearch
+    volumes:
+      - ../config/default-grimoirelab-settings/:/root/repos/grimoirelab/default-grimoirelab-settings/
+      - ../config/default-grimoirelab-settings/panels/json/:/root/repos/sigils/panels/json
+    networks:
+      - esnet
+
 volumes:
   esdata1:
     driver: local
