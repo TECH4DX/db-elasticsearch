@@ -8,6 +8,8 @@ services:
       - MYSQL_ROOT_PASSWORD=123456
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=demo_sh
+    networks:
+      - esnet
 
   hatstall:
     image: grimoirelab/hatstall:latest
