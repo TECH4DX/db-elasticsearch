@@ -80,6 +80,7 @@ services:
     image: guoqiangqi/grimoirelab:v1.1
     container_name: grimoirelab
     depends_on:
+      - kibiter
       - elasticsearch
     volumes:
       - ../config/default-grimoirelab-settings/:/root/repos/grimoirelab/default-grimoirelab-settings/
