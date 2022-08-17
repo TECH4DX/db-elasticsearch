@@ -76,7 +76,7 @@ services:
     networks:
       - esnet
 
-    grimoirelab:
+  grimoirelab:
     image: guoqiangqi/grimoirelab:v1.1
     container_name: grimoirelab
     depends_on:
